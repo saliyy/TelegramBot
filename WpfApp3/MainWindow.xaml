@@ -1,0 +1,47 @@
+﻿<Window x:Class="WpfApp3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="TelegramBot" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="362*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="ListBOX1"  Grid.ColumnSpan="2" 
+                 HorizontalAlignment="Left" 
+                 Height="350" Margin="25,50,0,0" 
+                 VerticalAlignment="Top" 
+                 Width="310"
+                 >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Background="Azure">
+                        <StackPanel Margin="10">
+                            <TextBlock x:Name="textblock1" Text="{Binding Name}" FontSize="15"></TextBlock>
+                            <TextBlock x:Name="textblock2" Text="{Binding msg}" FontSize="10"></TextBlock>
+                            <TextBlock x:Name="textblock3" Text="{Binding Time}" FontSize="8" Foreground="Gray"></TextBlock>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
+        <Label Content="Сообщения:" HorizontalAlignment="Left" Margin="27,20,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="113" FontFamily="Segoe UI Historic" FontSize="18"/>
+        <Label Content="Отправка Сообщения:" HorizontalAlignment="Left" Margin="297.4,25,0,0" VerticalAlignment="Top" Width="203" FontFamily="Segoe UI Historic" FontSize="18" Grid.Column="1"/>
+        <Rectangle Grid.Column="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="340" Margin="300.4,55,0,0" Stroke="Black" VerticalAlignment="Top" Width="365"/>
+        <Label Content="ID :" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="317.4,75,0,0" Width="43" FontFamily="Segoe UI Semibold" FontSize="20"/>
+        <TextBox x:Name="TextBox1Message" Grid.Column="1" HorizontalAlignment="Left" Height="110" Margin="320.4,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
+        <Button Content="Отправить" Grid.Column="1" HorizontalAlignment="Left" Margin="420.4,251,0,0" VerticalAlignment="Top" Width="140" RenderTransformOrigin="0,0.01" Height="29" FontFamily="Segoe UI Semibold" FontSize="20" Click="Button_Click"/>
+        <TextBox x:Name="IDtextBox" Text="{Binding ElementName=ListBOX1, Path=SelectedItem.id}" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="365.4,80,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="240"/>
+
+
+
+
+
+    </Grid>
+</Window>
